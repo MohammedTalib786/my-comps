@@ -11,9 +11,8 @@
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
-
+            font-family: sans-serif;
         }
-
 
         .container {
             display: flex;
@@ -27,9 +26,8 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 70vh;
+            height: 100vh;
             /* background-color: blueviolet; */
-
         }
 
         .section1 {
@@ -51,7 +49,10 @@
         .btn {
             width: 3rem;
             height: 3rem;
-            background-color: black;
+            background-color: rgb(78, 221, 246);
+            border: 0;
+            outline: 0;
+            cursor: pointer;
             color: white;
             font-size: 1.6rem;
             border-radius: 50%;
@@ -63,6 +64,10 @@
             transition: all .4s;
         }
 
+        .btn:active {
+            transform: scale(.82);
+        }
+
         .active {
             bottom: 2rem;
             opacity: 1;
@@ -72,7 +77,6 @@
 </head>
 
 <body>
-
     <div class="container">
         <div class="section section1">SECTION 1</div>
         <div class="section section2">SECTION 2</div>
@@ -81,27 +85,12 @@
     </div>
     <button class="btn ">&uarr;</button>
 
-
     <script>
-
         const btn = document.querySelector('.btn');
-        // console.log(btn)
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                btn.classList.add('active');
-            }
-            else {
-                btn.classList.remove('active');
-            }
-        })
-        btn.addEventListener('click', () => {
-            window.scrollTo(0, 0)
-        })
+        window.addEventListener('scroll', () => window.pageYOffset > 100 ? btn.classList.add('active') : btn.classList.remove('active'))
 
-        // let btn = document.getElementById('btn');
-        // btn.addEventListener('click', (e) => {
-        //     console.log(2)
-        // })
+        btn.addEventListener('click', () => window.scrollTo(0, 0))
+
     </script>
 </body>
 
